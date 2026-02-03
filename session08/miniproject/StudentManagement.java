@@ -85,6 +85,7 @@ class StudentManagement {
         student.setMathScore(math);
         student.setPhysisScore(physis);
         student.setChemicalScore(chemical);
+        student.calculateAverage();
         System.out.println("\nCap nhat sinh vien thanh cong\n");
     }
 
@@ -178,6 +179,15 @@ class StudentManagement {
         return student;
     }
 
+    // Tính điểm trung bình của tất cả sinh viên
+    public static double calculateAllAverage() {
+        int sum = 0;
+        for (int i = 0; i < index; i++) {
+            sum += students[i].calculateAverage();
+        }
+        return sum / index;
+    }
+
     // Thống kê
     public static void statics() {
         if (index == 0) {
@@ -216,7 +226,8 @@ class StudentManagement {
         System.out.println("So sinh vien yeu: " + weakCount);
         System.out.printf("Sinh vien co diem trung binh cao nhat: %s (%.2f)\n", studentAvgMax.getStudentName(),
                 studentAvgMax.calculateAverage());
-        System.out.printf("Sinh vien co diem trung binh thap nhat: %s (%.2f)\n\n", studentAvgMin.getStudentName(),
+        System.out.printf("Sinh vien co diem trung binh thap nhat: %s (%.2f)\n", studentAvgMin.getStudentName(),
                 studentAvgMin.calculateAverage());
+        System.out.printf("Diem trung binh cua tat ca sinh vien: %.2f\n\n", calculateAllAverage());
     }
 }
