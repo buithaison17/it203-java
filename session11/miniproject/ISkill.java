@@ -1,0 +1,3 @@
+interface ISkill {
+    int useUltimate();
+}
