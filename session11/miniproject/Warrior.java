@@ -1,39 +1,37 @@
 class Warrior extends GameCharacter implements ISkill {
-    private int armor;
+    private double armor;
 
-    public Warrior(String name, int hp, int attackPower, int armor) {
+    public Warrior(String name, double hp, double attackPower, double armor) {
         super(name, hp, attackPower);
         this.armor = armor;
     }
 
-    // Getter và setter
-    public int getArmor() {
-        return armor;
-    }
-
-    public void setArmor(int armor) {
-        this.armor = armor;
-    }
-
-    // Tấn công thường
     @Override
-    int attack() {
-        return attackPower;
-    }
-
-    // Sát thương nhận khi bị tấn công
-    @Override
-    public void takeDamage(int damage) {
-        int realDamage = damage - armor < 0 ? 0 : damage - armor;
+    void takeDamage(double damage) {
+        // Trừ giáp trước khi tấn công vào máu
+        double realDamage = damage - armor;
+        if (realDamage < 0) {
+            realDamage = 0;
+        }
         super.takeDamage(realDamage);
     }
 
-    // Sử dụng kĩ năng đặc biệt nhân đôi sát thương giảm 10% máu
     @Override
-    public int useUltimate() {
-        System.out.printf("%s su dung Dam ngan can\n", name);
-        hp -= hp * 0.1;
-        return attackPower * 2;
+    void attack(GameCharacter target) {
+        System.out.printf("%s tan cong %s\n", this.name, target.name);
+        target.takeDamage(this.attackPower);
     }
 
+    @Override
+    public void useUltimate(GameCharacter target) {
+        System.out.printf("%s tan cong %s bang Dam ngan can");
+        target.takeDamage(this.attackPower * 2);
+        // Trừ 10% máu khi dùng kĩ năng
+        this.hp -= this.hp * 0.1;
+    }
+
+    @Override
+    void displayInfo() {
+        System.out.printf("Ten: %s | HP: %.2f | Giap: %.2f\n", this.name, this.hp, this.armor);
+    }
 }

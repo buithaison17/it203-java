@@ -1,26 +1,27 @@
 abstract class GameCharacter {
     protected String name;
-    protected int hp;
-    protected int attackPower;
+    protected double hp;
+    protected double attackPower;
     static int count = 0;
 
-    public GameCharacter(String name, int hp, int attackPower) {
+    public GameCharacter(String name, double hp, double attackPower) {
         this.name = name;
         this.hp = hp;
         this.attackPower = attackPower;
-        count = count + 1;
+        count++;
     }
 
-    // Tấn công
-    abstract int attack();
+    abstract void attack(GameCharacter target);
 
-    // Logic nhận sát thương
-    public void takeDamage(int damage) {
-        hp -= damage;
+    void takeDamage(double amount) {
+        hp -= amount;
         if (hp <= 0) {
             hp = 0;
-            System.out.printf("%s da bi ha guc\n", name);
+            System.out.printf("%s da bi ha guc\n", this.name);
+        } else {
+            System.out.printf("%s mat %.2f mau. HP con %.2f\n", this.name, amount, this.hp);
         }
-    }
+    };
 
+    abstract void displayInfo();
 }

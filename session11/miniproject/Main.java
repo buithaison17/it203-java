@@ -1,58 +1,34 @@
 public class Main {
     public static void main(String[] args) {
         // Khởi tạo nhân vật
-        GameCharacter[] characters = new GameCharacter[3];
-        characters[0] = new Warrior("sonbui", 5000, 1000, 2000);
-        characters[1] = new Mage("tron", 2000, 800, 1000);
-        characters[2] = new GameCharacter("goblin", 200, 100) {
+        Warrior warrior = new Warrior("Yasuo", 500, 50, 20);
+        Mage mage = new Mage("Veigar", 300, 40, 200);
+        GameCharacter goblin = new GameCharacter("Goblin", 100, 10) {
             @Override
-            int attack() {
-                System.out.println("Goblin tan cong");
-                return attackPower;
+            void attack(GameCharacter target) {
+                System.out.printf("%s can trom %s gay %.2f sat thuong\n", this.name, target.name, attackPower);
+                target.takeDamage(attackPower);
+            }
+
+            @Override
+            void displayInfo() {
+                System.out.printf("Ten: %s | HP: %.2f", name, hp);
             }
         };
 
-        // Giả lập tấn công
-        for (int i = 0; i < characters.length; i++) {
-            // Nếu không có nhân vật hoặc nhân vật đã bị hạ gục không cho phép tấn công
-            if (characters[i] == null || characters[i].hp == 0) {
-                continue;
-            }
-            for (int j = 0; j < characters.length; j++) {
-                // Nếu không có nhân vật hoặc nhân vật đã chết không thể bị tấn công
-                if (i == j || characters[j] == null || characters[j].hp == 0) {
-                    continue;
-                }
-                // Tấn công
-                System.out.printf("%s tan cong thuong %s\n", characters[i].name, characters[j].name);
-                int damage = characters[i].attack();
-                characters[j].takeDamage(damage);
-                ;
-                // Random sử dụng Ulti
-                int useUlti = (int) (Math.random() * ((2 - 1) + 1)) + 1;
-                // Nếu nhân vật là Warrior hoặc Mage và nhân vật bị tấn công chưa bị hạ gục thì
-                // cho phép dùng Ulti
-                if (useUlti == 1 && characters[i] instanceof ISkill && characters[j].hp != 0) {
-                    System.out.printf("%s su dung ki nang dac biet tan cong %s\n", characters[i].name,
-                            characters[j].name);
-                    int ultiDamage = ((ISkill) characters[i]).useUltimate();
-                    characters[j].takeDamage(ultiDamage);
-                }
-            }
-        }
-        // In kết quả
-        System.out.println("Tong so nhan vat: " + GameCharacter.count);
-        for (GameCharacter character : characters) {
-            if (character instanceof Warrior) {
-                System.out.printf("Ten nhan vat: %s | HP: %d | Attack Power: %d | Armor: %d |\n", character.name,
-                        character.hp, character.attackPower, ((Warrior) character).getArmor());
-            } else if (character instanceof Mage) {
-                System.out.printf("Ten nhan vat: %s | HP: %d | Attack Power: %d | Mana: %d\n", character.name,
-                        character.hp, character.attackPower, ((Mage) character).getMana());
-            } else {
-                System.out.printf("Ten nhan vat: %s | HP: %d | Attack Power:%d\n", character.name, character.hp,
-                        character.attackPower);
-            }
-        }
+        // Yasuo tấn công Goblin
+        warrior.attack(goblin);
+        // Veigar dùng chiêu cuối lên Yasuo
+        mage.useUltimate(warrior);
+        // Goblin (Anonymous Class) tấn công
+        goblin.attack(mage);
+
+        // Hiển thị thông tin
+        System.out.println("\nTong so nhan vat da tao: " + GameCharacter.count + "\n");
+        System.out.println("----- Thong so sau luot dau -----");
+        warrior.displayInfo();
+        mage.displayInfo();
+        goblin.displayInfo();
+
     }
 }

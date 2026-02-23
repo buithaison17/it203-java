@@ -1,35 +1,37 @@
 class Mage extends GameCharacter implements ISkill {
-    private int mana;
+    double mana;
 
-    public Mage(String name, int hp, int attackPower, int mana) {
+    public Mage(String name, double hp, double attackPower, double mana) {
         super(name, hp, attackPower);
         this.mana = mana;
     }
 
-    public int getMana() {
-        return mana;
-    }
-
-    public void setMana(int mana) {
-        this.mana = mana;
-    }
-
-    // Tấn công thường
     @Override
-    int attack() {
+    void attack(GameCharacter target) {
+        System.out.printf("%s tan cong %s\n", this.name, target.name);
         if (mana >= 5) {
-            mana -= 5;
-            return attackPower;
+            mana = -5;
+            target.takeDamage(attackPower);
         } else {
-            return attackPower / 2;
+            target.takeDamage(attackPower / 2);
+        }
+
+    }
+
+    @Override
+    public void useUltimate(GameCharacter target) {
+        if (mana >= 50) {
+            mana -= 50;
+            System.out.printf("%s tan cong %s bang Hoa cau ton 50 mana\n", this.name, target.name);
+            target.takeDamage(attackPower * 3);
+        } else {
+            System.out.println("%s khong du mana de dung ki nang dac biet");
         }
     }
 
-    // Sử dụng kĩ năng đặc biệt
     @Override
-    public int useUltimate() {
-        System.out.printf("%s su dung Hoa cau\n", name);
-        mana -= 50;
-        return attackPower * 3;
+    void displayInfo() {
+        System.out.printf("Ten %s | HP: %.2f | Mana: %.2f\n", name, hp, mana);
+
     }
 }

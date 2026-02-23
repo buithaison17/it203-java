@@ -1,3 +1,3 @@
 interface ISkill {
-    int useUltimate();
+    void useUltimate(GameCharacter target);
 }
