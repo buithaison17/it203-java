@@ -4,6 +4,7 @@ public class Main {
         GameCharacter character1 = new Warrior("Vieggo", 320, 38, 10);
         GameCharacter character2 = new Warrior("Yone", 240, 42, 8);
         GameCharacter character3 = new Mage("Lux", 190, 50, 150);
+        GameCharacter character4 = new Archer("Ashe", 200, 35, 0.3);
         GameCharacter goblin = new GameCharacter("Goblin", 120, 18) {
             @Override
             void displayInfo() {
@@ -20,6 +21,7 @@ public class Main {
         GameManagement.addCharacter(character1);
         GameManagement.addCharacter(character2);
         GameManagement.addCharacter(character3);
+        GameManagement.addCharacter(character4);
         GameManagement.addCharacter(goblin);
 
         // Tấn công

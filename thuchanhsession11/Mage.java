@@ -10,15 +10,12 @@ class Mage extends GameCharacter implements ISkill {
     void attack(GameCharacter target) {
         System.out.printf("%s tan cong %s\n", this.name, target.name);
         if (mana >= 5) {
-            mana -= 5;
+            mana = -5;
             target.takeDamage(attackPower);
         } else {
             target.takeDamage(attackPower / 2);
         }
 
-        if (mana <= 0) {
-            mana = 0;
-        }
     }
 
     @Override
@@ -28,7 +25,7 @@ class Mage extends GameCharacter implements ISkill {
             System.out.printf("%s tan cong %s bang Hoa cau ton 50 mana\n", this.name, target.name);
             target.takeDamage(attackPower * 3);
         } else {
-            System.out.printf("%s khong du mana de dung ki nang dac biet\n", this.name);
+            System.out.println("%s khong du mana de dung ki nang dac biet");
         }
     }
 
