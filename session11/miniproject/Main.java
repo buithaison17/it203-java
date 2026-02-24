@@ -32,7 +32,7 @@ public class Main {
             GameCharacter takeAttacker = GameManagement.characters[randomTakeAttack];
 
             // Không tự đánh chính mình
-            if (randomAttack == randomTakeAttack) {
+            if (attacker == takeAttacker) {
                 continue;
             }
 
@@ -48,6 +48,7 @@ public class Main {
                 continue;
             }
 
+            // Sử dụng kĩ năng đặc biệt
             int randomUseUlti = (int) (Math.random() * 2);
 
             if (randomUseUlti == 0) {

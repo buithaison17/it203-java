@@ -28,7 +28,7 @@ class Mage extends GameCharacter implements ISkill {
             System.out.printf("%s tan cong %s bang Hoa cau ton 50 mana\n", this.name, target.name);
             target.takeDamage(attackPower * 3);
         } else {
-            System.out.printf("%s khong du mana de dung ki nang dac biet", this.name);
+            System.out.printf("%s khong du mana de dung ki nang dac biet\n", this.name);
         }
     }
 
