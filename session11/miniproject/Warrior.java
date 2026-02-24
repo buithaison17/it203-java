@@ -24,7 +24,7 @@ class Warrior extends GameCharacter implements ISkill {
 
     @Override
     public void useUltimate(GameCharacter target) {
-        System.out.printf("%s tan cong %s bang Dam ngan can");
+        System.out.printf("%s tan cong %s bang Dam ngan can\n", this.name, target.name);
         target.takeDamage(this.attackPower * 2);
         // Trừ 10% máu khi dùng kĩ năng
         this.hp -= this.hp * 0.1;

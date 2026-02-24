@@ -1,42 +1,72 @@
 public class Main {
     public static void main(String[] args) {
-        GameCharacter[] characters = new GameCharacter[3];
-        characters[0] = new Warrior("Yasuo", 500, 150, 20);
-        characters[1] = new Mage("Veigar", 300, 100, 200);
-        // Khởi tạo nhân vật
-        characters[2] = new GameCharacter("Goblin", 100, 10) {
+        // Tạo nhân vật
+        GameCharacter character1 = new Warrior("Vieggo", 320, 38, 10);
+        GameCharacter character2 = new Warrior("Yone", 240, 42, 8);
+        GameCharacter character3 = new Mage("Lux", 190, 50, 150);
+        GameCharacter goblin = new GameCharacter("Goblin", 120, 18) {
             @Override
-            void attack(GameCharacter target) {
-                System.out.printf("%s can trom %s gay %.2f sat thuong\n", this.name, target.name, attackPower);
-                target.takeDamage(attackPower);
+            void displayInfo() {
+                System.out.printf("Ten: %s | HP: %.2f", this.name, this.hp);
             }
 
             @Override
-            void displayInfo() {
-                System.out.printf("Ten: %s | HP: %.2f", name, hp);
+            void attack(GameCharacter target) {
+                target.takeDamage(attackPower);
             }
         };
 
-        // Giả lập tấn công
-        for (int i = 0; i < characters.length; i++) {
-            // Bị hạ gục không thể tấn công
-            if (characters[i].hp == 0 || characters[i] == null) {
+        // Thêm nhân vật
+        GameManagement.addCharacter(character1);
+        GameManagement.addCharacter(character2);
+        GameManagement.addCharacter(character3);
+        GameManagement.addCharacter(goblin);
+
+        // Tấn công
+        while (GameManagement.length > 1) {
+            // int randomAttack = Math.random()
+            int randomAttack = (int) (Math.random() * GameManagement.length);
+            int randomTakeAttack = (int) (Math.random() * GameManagement.length);
+
+            GameCharacter attacker = GameManagement.characters[randomAttack];
+            GameCharacter takeAttacker = GameManagement.characters[randomTakeAttack];
+
+            // Không tự đánh chính mình
+            if (randomAttack == randomTakeAttack) {
                 continue;
             }
-            // Tấn công
-            for (int j = 0; j < characters.length; j++) {
-                if (i == j || characters[j] == null || characters[j].hp == 0) {
-                    continue;
+
+            // Kiểm tra null
+            if (attacker == null
+                    || takeAttacker == null) {
+                continue;
+            }
+
+            // Kiểm tra xem nhân vật còn sống không
+            if (attacker.hp <= 0
+                    || takeAttacker.hp <= 0) {
+                continue;
+            }
+
+            int randomUseUlti = (int) (Math.random() * 2);
+
+            if (randomUseUlti == 0) {
+                attacker.attack(takeAttacker);
+            } else {
+                if (attacker instanceof Warrior) {
+                    ((Warrior) attacker).useUltimate(takeAttacker);
+                } else if (attacker instanceof Mage) {
+                    ((Mage) attacker).useUltimate(takeAttacker);
                 }
-                characters[i].attack(characters[j]);
+            }
+
+            // Xóa khỏi mảng nếu đã bị hạ gục
+            if (GameManagement.characters[randomTakeAttack].hp <= 0) {
+                GameManagement.deleteCharacter(GameManagement.characters[randomTakeAttack]);
             }
         }
 
-        // Hiển thị thông tin
-        System.out.println("\nTong so nhan vat da tao: " + GameCharacter.count + "\n");
-        System.out.println("----- Thong so sau luot dau -----");
-        for (GameCharacter gameCharacter : characters) {
-            gameCharacter.displayInfo();
-        }
+        // In người chiến thắng
+        System.out.printf("Nhan vat chien thang: %s", GameManagement.characters[0].name);
     }
 }
