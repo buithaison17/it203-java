@@ -1,9 +1,10 @@
 public class Main {
     public static void main(String[] args) {
+        GameCharacter[] characters = new GameCharacter[3];
+        characters[0] = new Warrior("Yasuo", 500, 50, 20);
+        characters[1] = new Mage("Veigar", 300, 40, 200);
         // Khởi tạo nhân vật
-        Warrior warrior = new Warrior("Yasuo", 500, 50, 20);
-        Mage mage = new Mage("Veigar", 300, 40, 200);
-        GameCharacter goblin = new GameCharacter("Goblin", 100, 10) {
+        characters[2] = new GameCharacter("Goblin", 100, 10) {
             @Override
             void attack(GameCharacter target) {
                 System.out.printf("%s can trom %s gay %.2f sat thuong\n", this.name, target.name, attackPower);
@@ -16,19 +17,23 @@ public class Main {
             }
         };
 
-        // Yasuo tấn công Goblin
-        warrior.attack(goblin);
-        // Veigar dùng chiêu cuối lên Yasuo
-        mage.useUltimate(warrior);
-        // Goblin (Anonymous Class) tấn công
-        goblin.attack(mage);
+        // Giả lập tấn công
+        for (int i = 0; i < 3; i++) {
+            // Bị hạ gục không thể tấn công
+            if (characters[i].hp == 0) {
+                continue;
+            }
+            
+            for (int j = 1; j < characters.length; j++) {
+
+            }
+        }
 
         // Hiển thị thông tin
         System.out.println("\nTong so nhan vat da tao: " + GameCharacter.count + "\n");
         System.out.println("----- Thong so sau luot dau -----");
-        warrior.displayInfo();
-        mage.displayInfo();
-        goblin.displayInfo();
-
+        for (GameCharacter gameCharacter : characters) {
+            gameCharacter.displayInfo();
+        }
     }
 }
