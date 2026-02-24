@@ -16,6 +16,9 @@ class Mage extends GameCharacter implements ISkill {
             target.takeDamage(attackPower / 2);
         }
 
+        if (mana <= 0) {
+            mana = 0;
+        }
     }
 
     @Override

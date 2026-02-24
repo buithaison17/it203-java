@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) {
         GameCharacter[] characters = new GameCharacter[3];
-        characters[0] = new Warrior("Yasuo", 500, 50, 20);
-        characters[1] = new Mage("Veigar", 300, 40, 200);
+        characters[0] = new Warrior("Yasuo", 500, 150, 20);
+        characters[1] = new Mage("Veigar", 300, 100, 200);
         // Khởi tạo nhân vật
         characters[2] = new GameCharacter("Goblin", 100, 10) {
             @Override
@@ -18,14 +18,17 @@ public class Main {
         };
 
         // Giả lập tấn công
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < characters.length; i++) {
             // Bị hạ gục không thể tấn công
-            if (characters[i].hp == 0) {
+            if (characters[i].hp == 0 || characters[i] == null) {
                 continue;
             }
-            
-            for (int j = 1; j < characters.length; j++) {
-
+            // Tấn công
+            for (int j = 0; j < characters.length; j++) {
+                if (i == j || characters[j] == null || characters[j].hp == 0) {
+                    continue;
+                }
+                characters[i].attack(characters[j]);
             }
         }
 
