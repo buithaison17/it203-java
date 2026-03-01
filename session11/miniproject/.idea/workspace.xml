@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b40f7612-5063-4837-ae19-968d2d6e9f0e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/miniproject/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/miniproject/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/miniproject/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/miniproject/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/miniproject/Archer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/miniproject/GameCharacter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/miniproject/GameManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/miniproject/ISkill.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/miniproject/Mage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/miniproject/Main$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/miniproject/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/miniproject/Warrior.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/miniproject/miniproject.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuchanhsession11/GameCharacter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuchanhsession11/ISkill.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuchanhsession11/Mage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuchanhsession11/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuchanhsession11/Warrior.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="3AEL1AEPSp0kQMP9ULFN8mtFll8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b40f7612-5063-4837-ae19-968d2d6e9f0e" name="Changes" comment="" />
+      <created>1772152569928</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1772152569928</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
