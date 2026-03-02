@@ -17,7 +17,7 @@ public class UserService implements IUserService, IManager<Customer> {
     @Override
     public void add(Customer t) {
         if (customers.containsKey(t.getId())) {
-            System.out.println("ID da ton tai");
+            System.out.println("Them that bai, ID da ton tai");
             return;
         }
         customers.put(t.getId(), t);

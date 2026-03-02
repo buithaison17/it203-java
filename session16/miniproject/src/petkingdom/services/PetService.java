@@ -15,6 +15,10 @@ public class PetService implements IManager<Pet> {
 
     @Override
     public void add(Pet t) {
+        if (findById(t.getId()) != null) {
+            System.out.println("Them that bai, ID da ton tai");
+            return;
+        }
         pets.add(t);
         System.out.println("Them thanh cong");
     }

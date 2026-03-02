@@ -128,7 +128,7 @@ public class Main {
                     System.out.print("Nhap gia moi: ");
                     double newPrice = Double.parseDouble(sc.nextLine());
                     Pet newPet = new Pet(idUpdate, newName, newSpieces, choice, newPrice);
-                    petService.add(newPet);
+                    petService.update(newPet);
                     logService.saveAction(new Log("Cap nhat thong tin thu cung " + newPet.getName(), newPet));
                     break;
             }
